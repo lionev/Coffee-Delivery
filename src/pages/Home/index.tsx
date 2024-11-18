@@ -1,8 +1,9 @@
 import { DecriptionContainer, HeaderContainer, HomeContainer, CategoriesContainer, CategoryBox, IconBox, OrdersContainer, CoffeeContainer } from "./styles";
 
-import CoffeCup from '../../assets/CoffeCup.png'
 import { Coffee, Cube, ShoppingCart, Timer } from "@phosphor-icons/react";
 import { CoffeeList } from "./components/CoffeeList";
+
+import CoffeCup from '/CoffeCup.svg'
 
 export function Home() {
   return (

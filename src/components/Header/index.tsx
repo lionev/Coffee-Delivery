@@ -1,5 +1,5 @@
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
-import Logo from '../../assets/Logo.png'
+import Logo from '/Logo.svg'
 
 import { NavLink } from 'react-router-dom'
 

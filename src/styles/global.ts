@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { mixins } from './mixins'
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -20,9 +21,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body, input, textarea, button {
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
+    ${mixins.fonts.textM};
+  }
+
+  button {
+    border: none;
+    cursor: pointer;
   }
 
 `

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mixins } from "../../styles/mixins";
 
 export const HomeContainer = styled.main`
   display: flex;
@@ -16,25 +17,27 @@ export const HeaderContainer = styled.div`
   margin-bottom: 7rem;
 `
 
-export const DecriptionContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  height: 12rem;
 
-  h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 1.25;
-  }
-  p {
-    margin-top: 0.875rem;
-    font-size: 1.25rem;
-    font-weight: 400;
-  }
+export const TextsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    > h1 {
+      ${mixins.fonts.titleXL}
+      color: ${props => props.theme['base-title']};
+    }
+
+    > span {
+      ${mixins.fonts.textL}
+      color: ${props => props.theme['base-subtitle']};
+    }
 `
+
 export const CategoriesContainer = styled.div`
   margin-top: 4.125rem;
   max-width: 35.313rem;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
@@ -56,6 +59,11 @@ export const CategoryBox = styled.div`
   height: 2rem;
   align-items: center;
   gap: 0.35rem;
+
+  span {
+    ${mixins.fonts.textM}
+    font-size: 0.950rem;
+  }
 `
 
 export const IconBox = styled.div<DescriptionsProps>`
@@ -69,7 +77,25 @@ export const IconBox = styled.div<DescriptionsProps>`
 `
 
 export const OrdersContainer = styled.div`
-  width: 100%;
+    max-width: 1160px;
+  padding: 32px 20px 150px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+
+  > h2 {
+    ${mixins.fonts.titleL}
+    color: ${props => props.theme['base-subtitle']}
+  }
+
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 40px;
+    grid-column-gap: 32px;
+  }
 `
 
 export const CoffeeContainer = styled.div`

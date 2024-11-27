@@ -1,52 +1,59 @@
-import { DecriptionContainer, HeaderContainer, HomeContainer, CategoriesContainer, CategoryBox, IconBox, OrdersContainer, CoffeeContainer } from "./styles";
+import { HeaderContainer, HomeContainer, CategoriesContainer, CategoryBox, IconBox, OrdersContainer, TextsContainer } from "./styles";
 
-import { Coffee, Cube, ShoppingCart, Timer } from "@phosphor-icons/react";
-import { CoffeeList } from "./components/CoffeeList";
+import data from '../../data/Coffes.json'
+
+import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
 
 import CoffeCup from '/CoffeCup.svg'
+import { useTheme } from "styled-components";
+import { CoffeeCard } from "../../components/CoffeeCard";
 
 export function Home() {
+  const props = useTheme()
+
   return (
     <HomeContainer>
       <HeaderContainer>
-        <DecriptionContainer>
-          <h1>Encontre o café perfeito para qualquer hora do dia</h1>
-          <p>Com o Coffee Delivery você recebe seu café onde estiver, a <br/> qualquer hora</p>
-          <CategoriesContainer>
-            <CategoryBox>
-              <IconBox Icons="yellow" >
-                <ShoppingCart size={16} weight="fill"/>
-              </IconBox>
-              <span>Compra simples e segura</span>
-            </CategoryBox>
-            <CategoryBox>
-              <IconBox Icons="black">
-                <Cube size={16} weight="fill"/>
-              </IconBox>
-              <span>Embalagem mantém o café intacto</span>
-            </CategoryBox>
-            <CategoryBox>
-              <IconBox Icons="orange">
-                <Timer size={16} weight="fill"/>
-              </IconBox>
-              <span>Entrega rápida e rastreada</span>
-            </CategoryBox>
-            <CategoryBox>
-              <IconBox Icons="purple">
-                <Coffee size={16} weight="fill"/>
-              </IconBox>
-              <span>O café chega fresquinho até você</span>
-            </CategoryBox>
-          </CategoriesContainer>
-        </DecriptionContainer>
+          <div>
+            <TextsContainer>
+              <h1>Encontre o café perfeito para qualquer hora do dia</h1>
+              <span>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</span>
+            </TextsContainer>
+            <CategoriesContainer>
+              <CategoryBox>
+                <IconBox Icons="yellow" >
+                  <ShoppingCart size={16} weight="fill" color={props['white']}/>
+                </IconBox>
+                <span>Compra simples e segura</span>
+              </CategoryBox>
+              <CategoryBox>
+                <IconBox Icons="black">
+                  <Package size={16} weight="fill" color={props['white']}/>
+                </IconBox>
+                <span>Embalagem mantém o café intacto</span>
+              </CategoryBox>
+              <CategoryBox>
+                <IconBox Icons="orange">
+                  <Timer size={16} weight="fill" color={props['white']}/>
+                </IconBox>
+                <span>Entrega rápida e rastreada</span>
+              </CategoryBox>
+              <CategoryBox>
+                <IconBox Icons="purple">
+                  <Coffee size={16} weight="fill" color={props['white']}/>
+                </IconBox>
+                <span>O café chega fresquinho até você</span>
+              </CategoryBox>
+            </CategoriesContainer>
+        </div>
         <img src={CoffeCup} alt="" />
       </HeaderContainer>
       
       <OrdersContainer>
-        <h1>Nossos cafés</h1>
-        <CoffeeContainer>
-          <CoffeeList />
-        </CoffeeContainer>
+        <h2>Nossos cafés</h2>
+        <div>
+          {data.coffees.map((coffe) => <CoffeeCard key={coffe.name} coffee={coffe} />)}
+        </div>
       </OrdersContainer>
     </HomeContainer>
   )

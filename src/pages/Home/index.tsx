@@ -51,6 +51,7 @@ export function Home() {
       
       <OrdersContainer>
         <h2>Nossos cafés</h2>
+        <h1>Forced Reinstall windows</h1>
         <div>
           {data.coffees.map((coffe) => <CoffeeCard key={coffe.name} coffee={coffe} />)}
         </div>
